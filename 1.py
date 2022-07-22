@@ -13,7 +13,7 @@ link = "http://suninjuly.github.io/explicit_wait2.html"
 try:
     driver.get(link)
     book_button = driver.find_element(By.ID, "book")
-    current_price = WebDriverWait(driver, 12).until(EC.text_to_be_present_in_element((By.ID, "price"), "$100"))
+    current_price = WebDriverWait(driver, 12).until(EC.text_to_be_present_in_element((By.ID, "price"), "$100")) #ожидание заданного текста между тегами элемента
     book_button.click()
     x = int(driver.find_element(By.ID, "input_value").text)
     print(x)
@@ -21,7 +21,7 @@ try:
     field = driver.find_element(By.ID, "answer")
     field.send_keys(answer)
     submit_button = driver.find_element(By.ID, "solve")
-    driver.execute_script("return arguments[0].scrollIntoView(true);", submit_button)
+    driver.execute_script("return arguments[0].scrollIntoView(true);", submit_button) #прокрутка к заданному элементу на странице
     submit_button.click()
 
 finally:
